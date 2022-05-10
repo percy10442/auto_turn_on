@@ -5,11 +5,10 @@ trigger:
     entity_id:
       - sensor.0x54ef441000472e25_occupancy_region
     to: '0101'
-  - type: occupied
-    platform: device
-    device_id: 9ea1f6444e157a46b63b092bacd730eb
-    entity_id: binary_sensor.0x54ef441000472e25_occupancy
-    domain: binary_sensor
+  - platform: state
+    entity_id:
+      - sensor.0x54ef441000472e25_occupancy_region
+    to: '0104'
 condition:
   - condition: time
     before: '22:00:00'
