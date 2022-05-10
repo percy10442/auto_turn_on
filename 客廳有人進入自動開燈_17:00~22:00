@@ -1,0 +1,22 @@
+alias: 客廳有人進入自動開燈_17:00~22:00
+description: ''
+trigger:
+  - platform: state
+    entity_id:
+      - sensor.0x54ef441000472e25_occupancy_region
+    to: '0101'
+  - type: occupied
+    platform: device
+    device_id: 9ea1f6444e157a46b63b092bacd730eb
+    entity_id: binary_sensor.0x54ef441000472e25_occupancy
+    domain: binary_sensor
+condition:
+  - condition: time
+    before: '22:00:00'
+    after: '17:00:00'
+action:
+  - type: turn_on
+    device_id: 4a1ed8f5c9e8be61413e5db59ed7d4cc
+    entity_id: switch.0x54ef44100001154b_channel_3
+    domain: switch
+mode: single
